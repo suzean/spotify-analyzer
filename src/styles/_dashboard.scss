@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@1&display=swap');
+
+
+.main-dashboard {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./pics/bcgr2.jpg");
+    flex-direction: column;
+    background-position: center;
+    background-size: cover; 
+}
+
+.main-glass {
+    background: white;
+    min-height: 80vh;
+    width: 85%;
+    background: linear-gradient(to right bottom, rgba(255, 233, 233, 0.6), rgba(255, 233, 233, 0.3));
+    border-radius: 2rem;
+    backdrop-filter: blur(0.3rem);
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+@media (max-width: 720px) {
+    .main-glass {
+        flex-direction: column;
+    }
+}
+
+.main-title {
+    font-family: 'IM Fell English', serif;
+    font-size: 3rem;
+  
+}
+
+.top-track-section {
+    flex: 1
+}
+.song-section {
+    flex: 1
+}
+.playlist-section {
+    flex: 1
+}

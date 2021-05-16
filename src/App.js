@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Dashboard from './Dashboard';
+import React, { useEffect, useState } from "react";
+import Login from './Login';
+import { useHistory} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+const App = () => {
+  const history = useHistory();
+
+  const [token, setToken] = useState("");
+  
+
+    const hash = window.location.hash.substr(1);
+    const result = hash.split('&').reduce(function (res, item) {
+      const parts = item.split('=');
+      res[parts[0]] = parts[1];
+      return res;
+    }, {});
+    
+
+    useEffect(() => {
+        setToken(result.access_token)
+    }, [token]);
+  
+  return token? <Dashboard token={token} history={history}/> : <Login />
+  
+};
 
 export default App;
+
+

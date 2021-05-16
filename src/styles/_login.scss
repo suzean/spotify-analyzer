@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@1&display=swap');
+
+body {
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: violet;
+}
+
+.main-login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./pics/bcgr.jpg");
+    flex-direction: column;
+    background-position: center;
+}
+
+.title-login {
+    font-family: 'IM Fell English', serif;
+    font-size: 3rem;
+}
+
+.btn-login {
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid black;
+    padding: 10px 15px;
+    border-radius: 20px;
+    // background-color: palevioletred;
+    background-color: rgba(138, 165, 194, 1);
+    color: black;
+    font-weight: bolder;
+    text-decoration: none;
+    span {
+        font-size: 1.5rem;
+    }
+}
+
