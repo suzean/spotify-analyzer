@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+.track-analysis {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+  
+}
+
+.track-albumCover {
+    height: 150px;
+    width: 150px;
+}
+
+.track-title {
+    margin: 0;
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.track-artist {
+    font-size: 0.8rem;
+}
+
+.track-header {
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+}

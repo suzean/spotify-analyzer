@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React, {useEffect, useState } from 'react';
 import ChosenTrack from './ChosenTrack';
+import { useLocation} from "react-router-dom";
 
 
 
 
 
-export default function Dashboard({token, history}) {
+
+export default function Dashboard({token}) {
     const [songs, setSongs] = useState([]);
     const [timeRange, setTimeRange] = useState("short_term");
     const [chosenSong, setChosenSong] = useState([]);
@@ -29,10 +31,12 @@ export default function Dashboard({token, history}) {
                 }
             }))
         }).catch(err => {
-            history.push("/");
-            window.location.reload()
+            console.log(err);
+            // document.location.href = '/' 
+        }).then(() => {
+            // window.location.reload()
         })
-    },[history, timeRange, token])
+    },[ timeRange, token])
 
     
     return (
@@ -80,6 +84,7 @@ export default function Dashboard({token, history}) {
                 </section>
                 <section className="song-section">
                 <ChosenTrack targetSong={chosenSong} token={token} />
+             
                 </section>
                 <section className="playlist-section">
                 3
