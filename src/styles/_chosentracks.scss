@@ -8,7 +8,20 @@
     justify-content: center;
     align-items: center;
     font-family: 'Open Sans', sans-serif;
+    
   
+}
+.box {
+    width: 90%;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(0.5rem);
+    box-shadow: 0px 10px 13px -7px rgb(161, 207, 207), 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
 .track-albumCover {
@@ -30,4 +43,8 @@
 .track-header {
     font-family: 'Lobster', cursive;
     font-size: 2rem;
+}
+.chart {
+    width: 300px;
+    height: 300px;
 }

@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, PolarArea, Radar } from 'react-chartjs-2';
 
 
 
@@ -21,16 +21,17 @@ import { Bar } from 'react-chartjs-2';
               'rgba(153, 102, 255)',
               'rgba(255, 159, 64)',
             ],
+            
           },
         ],
       };
     
       const options = {
-        indexAxis: 'y',
+        // indexAxis: 'y',
         elements: {
-          bar: {
-            borderWidth: 2,
-          },
+          line: {
+              borderWidth: 1,
+          }
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -42,18 +43,20 @@ import { Bar } from 'react-chartjs-2';
             display: true,
             text: 'Audio Features',
           },
+          tooltip: {
+            padding: 12,
+            bodySpacing: 5,
+        }
         },
       };
 
 
 
       return (
-          <div>
+          <div className="chart">
               <Bar 
               data={data} 
               options={options}
-              width={100}
-              height={400}
                />
           </div>
       )

@@ -7,8 +7,8 @@ export default function Player({token, player}) {
     return (
         <div>
             <SpotifyPlayer
-        token={token}
-        uris={[`${player}`]}
+            token={token}
+            uris={[`${player}`]}
         />
         </div>
         

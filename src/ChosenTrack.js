@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {useEffect, useState } from 'react';
 import NewChart from './NewChart';
-import Player from './Player';
+// import Player from './Player';
 
 
 
@@ -42,14 +42,27 @@ export default function ChosenTrack({ targetSong, token }) {
     let render = (
         <div className="track-analysis" >
             <h1 className="track-header"> Your Choice! </h1>
+            <div className="box">
             <img className="track-albumCover" src={targetSong.albumUrlBig} alt="album cover" />
             <p className="track-title">{targetSong.title}</p>
             <p className="track-artist">{targetSong.artist}</p>
             <button onMouseEnter={() => audio.play()} onMouseOut={() => audio.pause()}> Snippet </button>
-            
-            {/* <Player token={token} player={targetSong.uri} /> */}
+            </div>
 
-            <NewChart audio={audioFeatures}/>
+            <div className="box">
+                <NewChart audio={audioFeatures}/>
+
+                <ul>
+                    <li>Danceability</li>
+                    <li>Valence</li>
+                    <li>Tempo</li>
+                    <li>Acousticness</li>
+                    <li>Energy</li>
+                    <li>Liveness</li>
+                </ul>
+            </div>
+
+            
     
 
         </div>
