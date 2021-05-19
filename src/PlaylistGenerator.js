@@ -8,6 +8,7 @@ import SpotifyPlayer from "react-spotify-web-playback";
 export default function PlaylistGenerator({token, targetSong}) {
     const [newPlaylist, setNewPlaylist] = useState([]);
     const [tempo, setTempo] = useState();
+    const [playerUri, setPlayerUri] = useState('');
 
  
     useEffect(() => {
@@ -64,11 +65,14 @@ export default function PlaylistGenerator({token, targetSong}) {
     return (
         <>
         <h1>New Playlist Generator </h1>
+        <Player token={token} player={playerUri}/>
+
         <p> The below button generates a playlist based solely on the tempo and genre of the chosen track</p>
         <button onClick={handlePlaylist}> Start </button>
         
         <div>
             <ul>
+            {/* <Player token={token} player={playerUri}/> */}
         {newPlaylist.map(song => {
             const audio = new Audio(song.preview);
 
@@ -77,8 +81,7 @@ export default function PlaylistGenerator({token, targetSong}) {
                 render = <button> No preview! </button>
             }
             if (song.preview) {
-                // render = <button onMouseEnter={() => audio.play()} onMouseLeave={() => audio.pause()}> preview </button>
-                render = <Player token={token} player={song.uri}/>
+                render = <button onMouseEnter={() => audio.play()} onMouseLeave={() => audio.pause()}> preview </button>
             }
             return (
                 <>
@@ -90,6 +93,7 @@ export default function PlaylistGenerator({token, targetSong}) {
                         <p>{song.title}</p>
                         <p>{song.artist}</p>
                         {render}
+                        <button onClick={() => setPlayerUri(song.uri)}> click me</button>
                         
                     </div>
                 </li>

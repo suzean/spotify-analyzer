@@ -92,6 +92,7 @@ export default function Dashboard({token}) {
         <div className="main-dashboard">
             <h1 className="main-title"> Track Analyzer </h1>
             <h3>{userName}</h3>
+            
             <div className="main-glass">
                 <section className="top-track-section">
                 <h2 className="top-track-title"> Your Top 10 Tracks</h2>
