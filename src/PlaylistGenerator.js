@@ -64,39 +64,46 @@ export default function PlaylistGenerator({token, targetSong}) {
 
     return (
         <>
-        <h1>New Playlist Generator </h1>
+        <div className="playlist-main">
+        <h1 className="playlist-title">New Playlist Generator </h1>
         <Player token={token} player={playerUri}/>
 
-        <p> The below button generates a playlist based solely on the tempo and genre of the chosen track</p>
-        <button onClick={handlePlaylist}> Start </button>
+        <p className="playlist-description"> The below button generates a playlist based solely on the tempo and genre of the chosen track</p>
+        <button className="btn-render" onClick={handlePlaylist}> Start/Refresh </button>
+
+        </div>
         
-        <div>
-            <ul>
+        
+        <div className="playlist-body">
+            <ul className="playlist-list">
             {/* <Player token={token} player={playerUri}/> */}
         {newPlaylist.map(song => {
-            const audio = new Audio(song.preview);
+            // const audio = new Audio(song.preview);
 
-            let render;
-            if(song.preview === null) {
-                render = <button> No preview! </button>
-            }
-            if (song.preview) {
-                render = <button onMouseEnter={() => audio.play()} onMouseLeave={() => audio.pause()}> preview </button>
-            }
+            // let render;
+            // if(song.preview === null) {
+            //     render = <button> No preview! </button>
+            // }
+            // if (song.preview) {
+            //     render = <button onMouseEnter={() => audio.play()} onMouseLeave={() => audio.pause()}> preview </button>
+            // }
             return (
                 <>
-                <li key={song.id}>
-                    <div>
+                <li className="playlist-item" key={song.id}>
+                    <div className="playlist-img">
                         <img src={song.albumUrl}/>
                     </div>
-                    <div>
-                        <p>{song.title}</p>
-                        <p>{song.artist}</p>
-                        {render}
-                        <button onClick={() => setPlayerUri(song.uri)}> click me</button>
+                    <div className="playlist-text">
+                        <p className="playlist-name">{song.title}</p>
+                        <p className="playlist-artist">{song.artist}</p>
+                        {/* {render} */}
                         
                     </div>
+
                 </li>
+                <button className="btn-playlist" onClick={() => setPlayerUri(song.uri)}> Try me! </button>
+
+
                 </>
             )
         })}

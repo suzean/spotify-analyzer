@@ -13,11 +13,10 @@ export default function Player({token, player}) {
             autoPlay={true}
             initialVolume={10}
             styles={{
-                activeColor: 'black',
-                bgColor: 'white',
-                color: '#black',
-                loaderColor: 'black',
-                loaderSize: '10',
+                activeColor: '#fff',
+                bgColor: 'black',
+                color: '#fff',
+                loaderColor: '#fff',
                 sliderColor: '#1cb954',
                 trackArtistColor: '#ccc',
                 trackNameColor: '#fff',
