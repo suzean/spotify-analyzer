@@ -2,15 +2,20 @@ import React, {useEffect, useState } from 'react';
 import SpotifyPlayer from "react-spotify-web-playback";
 
 export default function Player({token, player}) {
-    if(!player) return null;
+    const [play, setPlay] = useState(false)
+
+    useEffect(() => setPlay(true), [player])
 
     return (
-        <div styles={{position: "absolute", top: "10px"}}>
+        <div className="spotify-player">
             <SpotifyPlayer
             token={token}
             uris={[`${player}`]}
-            showSaveIcon={true}
-            autoPlay={true}
+            showSaveIcon
+            callback={state => {
+                if(!state.isPlaying) setPlay(false)
+            }}
+            play={play}
             initialVolume={10}
             styles={{
                 activeColor: '#fff',

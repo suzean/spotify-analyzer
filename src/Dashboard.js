@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useEffect, useState } from 'react';
 import ChosenTrack from './ChosenTrack';
+import Player from './Player';
 import PlaylistGenerator from './PlaylistGenerator';
 
 
@@ -13,9 +14,14 @@ export default function Dashboard({token}) {
     const [timeRange, setTimeRange] = useState("short_term");
     const [chosenSong, setChosenSong] = useState([]);
     const [userName, setUserName] = useState("");
-    const [hello, setHello] = useState([]);
     const [topOrRecent, setTopOrRecent] = useState("top");
     const [isDisabled, setIsDisabled] = useState(false)
+    const [playingTrack, setPlayingTrack] = useState('');
+
+    const handleChooseTrack = (track) => {
+        setPlayingTrack(track)
+        console.log(track);
+    }
     
     useEffect(() =>{
 
@@ -90,6 +96,7 @@ export default function Dashboard({token}) {
     
     return (
         <div className="main-dashboard">
+            <Player token={token} player={playingTrack}/>
             <h1 className="main-title"> Track Analyzer </h1>
             <h3 className="userName"> Your Username: <span>{userName} </span> </h3>
             
@@ -131,7 +138,9 @@ export default function Dashboard({token}) {
                                   
                                 </li> 
                                  <div className="btn-container">
-                                      <button onClick={() => setChosenSong(song)}className="btn-start"> Analyze </button>
+                                      {/* <a href="#chosen" onClick={() => setChosenSong(song)}className="btn-start"> Analyze </a> */}
+                                      <button  onClick={() => setChosenSong(song)}className="btn-start"> Analyze </button>
+
                                     </div>
                             </div>
                                   </>    
@@ -140,12 +149,12 @@ export default function Dashboard({token}) {
                         </ul>
                     </div>
                 </section>
-                <section className="song-section">
+                <section className="song-section" id="chosen">
                 <ChosenTrack targetSong={chosenSong} token={token} />
              
                 </section>
                 <section className="playlist-section">
-                <PlaylistGenerator token={token} targetSong={chosenSong}/>
+                <PlaylistGenerator token={token} targetSong={chosenSong} handleChooseTrack={handleChooseTrack}/>
                 </section>
             </div>
         </div>

@@ -5,10 +5,11 @@ import SpotifyPlayer from "react-spotify-web-playback";
 
 
 
-export default function PlaylistGenerator({token, targetSong}) {
+export default function PlaylistGenerator({token, targetSong, handleChooseTrack}) {
     const [newPlaylist, setNewPlaylist] = useState([]);
     const [tempo, setTempo] = useState();
-    const [playerUri, setPlayerUri] = useState('');
+    const [playerUri, setPlayerUri] = useState();
+   
 
  
     useEffect(() => {
@@ -27,10 +28,12 @@ export default function PlaylistGenerator({token, targetSong}) {
             })
         }
 
+            
     
 
     }, [targetSong, token])
 
+    handleChooseTrack(playerUri);
 
     const handlePlaylist =(e) => {
         axios.get(`https://api.spotify.com/v1/recommendations?limit=10&seed_tracks=${targetSong.id}&min_tempo=${tempo - 10}&max_tempo=${tempo + 10}`, {
@@ -58,7 +61,6 @@ export default function PlaylistGenerator({token, targetSong}) {
 
 
     
-   
 
 
 
@@ -66,7 +68,7 @@ export default function PlaylistGenerator({token, targetSong}) {
         <>
         <div className="playlist-main">
         <h1 className="playlist-title">New Playlist Generator </h1>
-        <Player token={token} player={playerUri}/>
+        {/* <Player token={token} player={playerUri}/> */}
 
         <p className="playlist-description"> The below button generates a playlist based solely on the tempo and genre of the chosen track</p>
         <button className="btn-render" onClick={handlePlaylist}> Start/Refresh </button>
@@ -76,17 +78,7 @@ export default function PlaylistGenerator({token, targetSong}) {
         
         <div className="playlist-body">
             <ul className="playlist-list">
-            {/* <Player token={token} player={playerUri}/> */}
         {newPlaylist.map(song => {
-            // const audio = new Audio(song.preview);
-
-            // let render;
-            // if(song.preview === null) {
-            //     render = <button> No preview! </button>
-            // }
-            // if (song.preview) {
-            //     render = <button onMouseEnter={() => audio.play()} onMouseLeave={() => audio.pause()}> preview </button>
-            // }
             return (
                 <>
                 <li className="playlist-item" key={song.id}>
@@ -102,6 +94,9 @@ export default function PlaylistGenerator({token, targetSong}) {
 
                 </li>
                 <button className="btn-playlist" onClick={() => setPlayerUri(song.uri)}> Try me! </button>
+                {/* <button className="btn-playlist" onClick={handleChooseTrack(song.uri)}> Try me! </button> */}
+
+                
 
 
                 </>

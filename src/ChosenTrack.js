@@ -64,27 +64,48 @@ export default function ChosenTrack({ targetSong, token }) {
                         </li>
                     <li className="analysis-item 2">
                         {/* Valence */}
+                        <img src="smile-2.svg" />
+                        <p>
                         Describes the musical positiveness conveyed by a track. Tracks with high valence 
                         sound more positive, while tracks with low valence sound more negative.
+                        </p>
                         </li>
                     <li className="analysis-item 3">
                         {/* Tempo */}
+                        <img src="speaker.svg" />
+                        <p>
                         The overall estimated tempo of a track in beats per minute (BPM). 
-                        In musical terminology, tempo is the speed or pace of a given piece, and derives directly from the average beat duration.
+                        In musical terminology, tempo is the speed or pace of a given piece.
+
+                        </p>
+                        
                         </li>
                     <li className="analysis-item 4">
                         {/* Acousticness */}
+                        <img src="mic-2.svg" />
+                        <p>
                         A confidence measure from 0.0 to 1.0 of whether the track is acoustic.
+
+                        </p>
+                        
                         </li>
                     <li className="analysis-item 5">
                         {/* Energy */}
+                        <img src="battery-charging.svg" />
+                        <p>
                         Represents a perceptual measure of intensity and activity. 
                         Typically, energetic tracks feel fast, loud, and noisy.
+                        </p>
                         </li>
                     <li className="analysis-item 6">
                         {/* Liveness */}
+                        <img src="user-check-2.svg" />
+                        <p>
                         Detects the presence of an audience in the recording. 
                         Higher liveness values represent an increased probability that the track was performed live.
+
+                        </p>
+                        
                         </li>
                 </ul>
             </div>
