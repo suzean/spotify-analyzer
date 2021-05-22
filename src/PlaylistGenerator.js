@@ -1,7 +1,5 @@
 import React, {useEffect, useState } from 'react';
 import axios from 'axios';
-import Player from './Player';
-import SpotifyPlayer from "react-spotify-web-playback";
 
 
 
@@ -68,14 +66,9 @@ export default function PlaylistGenerator({token, targetSong, handleChooseTrack}
         <>
         <div className="playlist-main">
         <h1 className="playlist-title">New Playlist Generator </h1>
-        {/* <Player token={token} player={playerUri}/> */}
-
-        <p className="playlist-description"> The below button generates a playlist based solely on the tempo and genre of the chosen track</p>
+        <p className="playlist-description"> The below button generates similar song examples based solely on the tempo and genre of the chosen track</p>
         <button className="btn-render" onClick={handlePlaylist}> Start/Refresh </button>
-
         </div>
-        
-        
         <div className="playlist-body">
             <ul className="playlist-list">
         {newPlaylist.map(song => {
@@ -88,17 +81,9 @@ export default function PlaylistGenerator({token, targetSong, handleChooseTrack}
                     <div className="playlist-text">
                         <p className="playlist-name">{song.title}</p>
                         <p className="playlist-artist">{song.artist}</p>
-                        {/* {render} */}
-                        
                     </div>
-
                 </li>
                 <button className="btn-playlist" onClick={() => setPlayerUri(song.uri)}> Try me! </button>
-                {/* <button className="btn-playlist" onClick={handleChooseTrack(song.uri)}> Try me! </button> */}
-
-                
-
-
                 </>
             )
         })}
@@ -106,6 +91,4 @@ export default function PlaylistGenerator({token, targetSong, handleChooseTrack}
         </div>
         </>
     )
-
-
 };

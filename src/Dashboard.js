@@ -102,7 +102,7 @@ export default function Dashboard({token}) {
             
             <div className="main-glass">
                 <section className="top-track-section">
-                <h2 className="top-track-title"> Your Top 10 Tracks</h2>
+                <h2 className="top-track-title"> Your 10 Most Recent/Top Tracks</h2>
                     <form className="top-track-form">
                         <label>
                             Pick an option:
@@ -138,7 +138,6 @@ export default function Dashboard({token}) {
                                   
                                 </li> 
                                  <div className="btn-container">
-                                      {/* <a href="#chosen" onClick={() => setChosenSong(song)}className="btn-start"> Analyze </a> */}
                                       <button  onClick={() => setChosenSong(song)}className="btn-start"> Analyze </button>
 
                                     </div>

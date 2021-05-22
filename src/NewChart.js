@@ -1,5 +1,5 @@
-import React, {useEffect, useState } from 'react';
-import { Bar, PolarArea, Radar } from 'react-chartjs-2';
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
 
 
 
@@ -14,12 +14,6 @@ import { Bar, PolarArea, Radar } from 'react-chartjs-2';
             label: "",
             data: [audio.danceability*100, audio.valence*100, audio.tempo, audio.acousticness*100, audio.energy*100, audio.liveness*100],
             backgroundColor: [
-            //   'rgba(255, 99, 132)',
-            //   'rgba(54, 162, 235)',
-            //   'rgba(255, 206, 86)',
-            //   'rgba(75, 192, 192)',
-            //   'rgba(153, 102, 255)',
-            //   'rgba(255, 159, 64)',
             '#d10808',
             '#08d1d1',
             '#6dd108',
@@ -33,7 +27,6 @@ import { Bar, PolarArea, Radar } from 'react-chartjs-2';
       };
     
       const options = {
-        // indexAxis: 'y',
         elements: {
           line: {
               borderWidth: 1,

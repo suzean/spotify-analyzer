@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, {useEffect, useState } from 'react';
 import NewChart from './NewChart';
-// import Player from './Player';
 
 
 
@@ -13,7 +12,6 @@ export default function ChosenTrack({ targetSong, token }) {
     const [audio, setAudio] = useState('');
    
     useEffect(() => {
-        // console.log(targetSong);
         if(targetSong.length !== 0) {
             setIsChosen(true);
             setSongID(targetSong.id)
@@ -46,7 +44,6 @@ export default function ChosenTrack({ targetSong, token }) {
             <img className="track-albumCover" src={targetSong.albumUrlBig} alt="album cover" />
             <p className="track-title">{targetSong.title}</p>
             <p className="track-artist">{targetSong.artist}</p>
-            {/* <button onMouseEnter={() => audio.play()} onMouseOut={() => audio.pause()}> Snippet </button> */}
             <img src="headphones-3.svg" onMouseEnter={() => audio.play()} onMouseOut={() => audio.pause()} ></img>
             </div>
 
@@ -76,18 +73,14 @@ export default function ChosenTrack({ targetSong, token }) {
                         <p>
                         The overall estimated tempo of a track in beats per minute (BPM). 
                         In musical terminology, tempo is the speed or pace of a given piece.
-
                         </p>
-                        
                         </li>
                     <li className="analysis-item 4">
                         {/* Acousticness */}
                         <img src="mic-2.svg" />
                         <p>
-                        A confidence measure from 0.0 to 1.0 of whether the track is acoustic.
-
+                        A confidence measure of whether the track is acoustic.
                         </p>
-                        
                         </li>
                     <li className="analysis-item 5">
                         {/* Energy */}
@@ -103,16 +96,10 @@ export default function ChosenTrack({ targetSong, token }) {
                         <p>
                         Detects the presence of an audience in the recording. 
                         Higher liveness values represent an increased probability that the track was performed live.
-
                         </p>
-                        
                         </li>
                 </ul>
             </div>
-
-            
-    
-
         </div>
     )
    
