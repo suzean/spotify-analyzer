@@ -4,8 +4,6 @@ import Login from './Login';
 
 
 const App = () => {
-  
-
   const [token, setToken] = useState("");
   
 
