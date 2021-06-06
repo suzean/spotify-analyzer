@@ -1,5 +1,6 @@
 This is an app that analyzes either your recent or top played tracks on Spotify and allows you to generate new songs based on specific track data.
 
+
 To be able to use it you need to login using your Spotify credentials, after you get the below view:
 
 #1 The first column:
@@ -21,6 +22,7 @@ The Spotify Player works only if you have a Premium subscription with Spotify.)
 
 
 Enjoy!
+https://trackanalyzer.netlify.app
 
 
 
